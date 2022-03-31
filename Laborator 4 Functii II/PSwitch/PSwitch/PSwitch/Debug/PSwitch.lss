@@ -1,0 +1,162 @@
+
+PSwitch.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000d0  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000124  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000124  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000154  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000020  00000000  00000000  00000190  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000005c6  00000000  00000000  000001b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000054c  00000000  00000000  00000776  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000228  00000000  00000000  00000cc2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000024  00000000  00000000  00000eec  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002fa  00000000  00000000  00000f10  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000013  00000000  00000000  0000120a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000010  00000000  00000000  0000121d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 32 00 	jmp	0x64	; 0x64 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  54:	48 00       	.word	0x0048	; ????
+  56:	4b 00       	.word	0x004b	; ????
+  58:	4e 00       	.word	0x004e	; ????
+  5a:	51 00       	.word	0x0051	; ????
+  5c:	54 00       	.word	0x0054	; ????
+  5e:	57 00       	.word	0x0057	; ????
+  60:	5a 00       	.word	0x005a	; ????
+  62:	5d 00       	.word	0x005d	; ????
+
+00000064 <__ctors_end>:
+  64:	11 24       	eor	r1, r1
+  66:	1f be       	out	0x3f, r1	; 63
+  68:	cf e5       	ldi	r28, 0x5F	; 95
+  6a:	d4 e0       	ldi	r29, 0x04	; 4
+  6c:	de bf       	out	0x3e, r29	; 62
+  6e:	cd bf       	out	0x3d, r28	; 61
+  70:	0e 94 3e 00 	call	0x7c	; 0x7c <main>
+  74:	0c 94 66 00 	jmp	0xcc	; 0xcc <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <main>:
+
+int main(void)
+{
+   unsigned char inputs;
+
+   DDRA = 0xff;
+  7c:	8f ef       	ldi	r24, 0xFF	; 255
+  7e:	8a bb       	out	0x1a, r24	; 26
+   DDRB = 0x0;
+  80:	17 ba       	out	0x17, r1	; 23
+   
+   while (1)
+   {
+      inputs = PINB & 0b00000111;
+  82:	e6 b3       	in	r30, 0x16	; 22
+  84:	e7 70       	andi	r30, 0x07	; 7
+      
+      switch (inputs)
+  86:	f0 e0       	ldi	r31, 0x00	; 0
+  88:	e6 5d       	subi	r30, 0xD6	; 214
+  8a:	ff 4f       	sbci	r31, 0xFF	; 255
+  8c:	0c 94 60 00 	jmp	0xc0	; 0xc0 <__tablejump2__>
+      {
+         case 0:
+         PORTA = 0b0111111;
+  90:	8f e3       	ldi	r24, 0x3F	; 63
+  92:	8b bb       	out	0x1b, r24	; 27
+         break;
+  94:	f6 cf       	rjmp	.-20     	; 0x82 <main+0x6>
+         case 1:
+         PORTA = 0b0000110;
+  96:	86 e0       	ldi	r24, 0x06	; 6
+  98:	8b bb       	out	0x1b, r24	; 27
+         break;
+  9a:	f3 cf       	rjmp	.-26     	; 0x82 <main+0x6>
+         case 2:
+         PORTA = 0b1011011;
+  9c:	8b e5       	ldi	r24, 0x5B	; 91
+  9e:	8b bb       	out	0x1b, r24	; 27
+         break;
+  a0:	f0 cf       	rjmp	.-32     	; 0x82 <main+0x6>
+         case 3:
+         PORTA =  0b1001111;
+  a2:	8f e4       	ldi	r24, 0x4F	; 79
+  a4:	8b bb       	out	0x1b, r24	; 27
+         break;
+  a6:	ed cf       	rjmp	.-38     	; 0x82 <main+0x6>
+         case 4:
+         PORTA = 0b1100110;
+  a8:	86 e6       	ldi	r24, 0x66	; 102
+  aa:	8b bb       	out	0x1b, r24	; 27
+         break;
+  ac:	ea cf       	rjmp	.-44     	; 0x82 <main+0x6>
+         case 5:
+         PORTA = 0b1101101;
+  ae:	8d e6       	ldi	r24, 0x6D	; 109
+  b0:	8b bb       	out	0x1b, r24	; 27
+         break;
+  b2:	e7 cf       	rjmp	.-50     	; 0x82 <main+0x6>
+         case 6:
+         PORTA =  0b1111101;
+  b4:	8d e7       	ldi	r24, 0x7D	; 125
+  b6:	8b bb       	out	0x1b, r24	; 27
+         break;
+  b8:	e4 cf       	rjmp	.-56     	; 0x82 <main+0x6>
+         case 7:
+         PORTA = 0b0000111;
+  ba:	87 e0       	ldi	r24, 0x07	; 7
+  bc:	8b bb       	out	0x1b, r24	; 27
+         break;
+  be:	e1 cf       	rjmp	.-62     	; 0x82 <main+0x6>
+
+000000c0 <__tablejump2__>:
+  c0:	ee 0f       	add	r30, r30
+  c2:	ff 1f       	adc	r31, r31
+  c4:	05 90       	lpm	r0, Z+
+  c6:	f4 91       	lpm	r31, Z
+  c8:	e0 2d       	mov	r30, r0
+  ca:	09 94       	ijmp
+
+000000cc <_exit>:
+  cc:	f8 94       	cli
+
+000000ce <__stop_program>:
+  ce:	ff cf       	rjmp	.-2      	; 0xce <__stop_program>
