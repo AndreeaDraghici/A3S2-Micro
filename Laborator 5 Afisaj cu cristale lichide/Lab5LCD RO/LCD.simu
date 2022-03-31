@@ -1,0 +1,36 @@
+<circuit noLinAcc="5" reactStep="50" speed="1000000" type="simulide_0.4" animate="0">
+ 
+Ground-3: 
+<item objectName="Ground-3" valLabRot="0" hflip="1" valLabely="0" itemtype="Ground" rotation="0" x="-476" labelrot="0" id="Ground-80" Show_id="false" y="-300" labelx="-16" labely="8" valLabelx="0" vflip="1"/>
+ 
+Hd44780-2: 
+<item objectName="Hd44780-2" Rows="2" valLabRot="0" hflip="1" valLabely="0" itemtype="Hd44780" Cols="16" rotation="-360" x="-464" labelrot="0" id="Hd44780-121" Show_id="true" y="-356" labelx="70" labely="-82" valLabelx="0" vflip="1"/>
+ 
+atmega16-1: 
+<item hflip="1" x="-292" Program="test_LCD/test_LCD/Debug/test_LCD.hex" Auto_Load="false" Mhz="8" Logic_Symbol="false" y="-300" labelx="0" Init_gdb="false" rotation="0" valLabelx="0" Show_id="true" itemtype="AVR" vflip="1" valLabRot="0" labely="-20" labelrot="0" eeprom="255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255" valLabely="0" id="atmega16-2" objectName="atmega16-1"/>
+ 
+Connector-4: 
+<item hflip="1" x="-440" startpinid="Hd44780-2-PinRW" y="-348" labelx="-16" enodeid="Circ_eNode-5" rotation="0" valLabelx="0" Show_id="false" pointList="-440,-348,-440,-316,-476,-316" itemtype="Connector" vflip="1" valLabRot="0" labely="-24" endpinid="Ground-3-Gnd" labelrot="0" valLabely="0" id="Connector-67" objectName="Connector-4"/>
+ 
+Connector-6: 
+<item hflip="1" x="-368" startpinid="Hd44780-2-dataPin7" y="-348" labelx="-16" enodeid="Circ_eNode-7" rotation="0" valLabelx="0" Show_id="false" pointList="-368,-348,-368,-164,-300,-164" itemtype="Connector" vflip="1" valLabRot="0" labely="-24" endpinid="atmega16-1-PD3" labelrot="0" valLabely="0" id="Connector-7" objectName="Connector-6"/>
+ 
+Connector-8: 
+<item hflip="1" x="-376" startpinid="Hd44780-2-dataPin6" y="-348" labelx="-16" enodeid="Circ_eNode-9" rotation="0" valLabelx="0" Show_id="false" pointList="-376,-348,-376,-172,-300,-172" itemtype="Connector" vflip="1" valLabRot="0" labely="-24" endpinid="atmega16-1-PD2" labelrot="0" valLabely="0" id="Connector-8" objectName="Connector-8"/>
+ 
+Connector-10: 
+<item hflip="1" x="-384" startpinid="Hd44780-2-dataPin5" y="-348" labelx="-16" enodeid="Circ_eNode-11" rotation="0" valLabelx="0" Show_id="false" pointList="-384,-348,-384,-180,-300,-180" itemtype="Connector" vflip="1" valLabRot="0" labely="-24" endpinid="atmega16-1-PD1" labelrot="0" valLabely="0" id="Connector-9" objectName="Connector-10"/>
+ 
+Connector-12: 
+<item hflip="1" x="-392" startpinid="Hd44780-2-dataPin4" y="-348" labelx="-16" enodeid="Circ_eNode-13" rotation="0" valLabelx="0" Show_id="false" pointList="-392,-348,-392,-188,-300,-188" itemtype="Connector" vflip="1" valLabRot="0" labely="-24" endpinid="atmega16-1-PD0" labelrot="0" valLabely="0" id="Connector-10" objectName="Connector-12"/>
+ 
+Connector-14: 
+<item hflip="1" x="-448" startpinid="Hd44780-2-PinRS" y="-348" labelx="-16" enodeid="Circ_eNode-15" rotation="0" valLabelx="0" Show_id="false" pointList="-448,-348,-448,-156,-300,-156" itemtype="Connector" vflip="1" valLabRot="0" labely="-24" endpinid="atmega16-1-PD4" labelrot="0" valLabely="0" id="Connector-11" objectName="Connector-14"/>
+ 
+Connector-16: 
+<item hflip="1" x="-432" startpinid="Hd44780-2-PinEn" y="-348" labelx="-16" enodeid="Circ_eNode-17" rotation="0" valLabelx="0" Show_id="false" pointList="-432,-348,-432,-148,-300,-148" itemtype="Connector" vflip="1" valLabRot="0" labely="-24" endpinid="atmega16-1-PD5" labelrot="0" valLabely="0" id="Connector-12" objectName="Connector-16"/>
+ 
+PlotterWidget-18: 
+<item maximized="false" statusTip="" rect="" palette="" baseSize="" windowIcon="" childrenRegion="" windowIconText="" toolTipDuration="-1" layoutDirection="0" windowOpacity="1" maximumWidth="1000" whatsThis="" accessibleName="" minimumWidth="200" fullScreen="false" MaxVolt="500" x="0" sizeHint="" frameGeometry="" itemtype="Plotter" isActiveWindow="true" windowFilePath="" size="" inputMethodHints="0" mouseTracking="false" height="200" maximumSize="" locale="" MinVolt="-500" normalGeometry="" font="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" modal="false" Tracks="1" enabled="true" childrenRect="" maximumHeight="200" windowModified="false" frameSize="" contextMenuPolicy="1" minimized="false" geometry="" visible="false" toolTip="" focusPolicy="0" objectName="PlotterWidget-18" accessibleDescription="" y="0" width="200" minimumHeight="200" autoFillBackground="false" styleSheet="" acceptDrops="false" minimumSize="" windowModality="0" updatesEnabled="true" cursor="" minimumSizeHint="" Scale="1" focus="false" pos="" sizePolicy="" sizeIncrement="" windowTitle=""/>
+ 
+</circuit>
